@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-  alert('**Please Use Crome Browser for better experiance**')
+  
   
   let input_text = document.getElementById('input_text');
   let generate_btn = document.getElementById('generate_btn');
