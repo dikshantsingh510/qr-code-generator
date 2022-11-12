@@ -1,0 +1,258 @@
+:root {
+  --bg_color: #fff;
+  --generator_bg: #fff;
+  --btn_color: hsla(221, 17%, 37%, 1);
+  --text_color: hsla(221, 30%, 60%, 1);
+  --border_color: hsla(221, 35%, 88%, 1);
+  --transition: 1s;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  font-family: sans-serif;
+  background: var(--bg_color);
+  /* background: linear-gradient(135deg,#0CCDA3,#C1FCD3); */
+
+
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+#error_alert,
+#success_alert {
+  position: absolute;
+  bottom: -500%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15em;
+  height: 2.2em;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  background: linear-gradient(-40deg, #ff2957, #ff7357);
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #fff;
+  font-weight: 500;
+  transition: 1s;
+  opacity: 1;
+  z-index: 100;
+}
+
+#success_alert {
+  background: linear-gradient(160deg, #d6ff7f, #0ccda3);
+  z-index: 99;
+
+}
+
+#error_alert::before,
+#success_alert::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background: linear-gradient(-40deg, #ff2957, #ff7357);
+  filter: blur(10px);
+}
+
+#success_alert::before {
+  background: linear-gradient(160deg, #d6ff7f, #0ccda3);
+}
+
+#error_alert p,
+#success_alert p {
+  position: absolute;
+  color: #fff;
+}
+
+
+.generator {
+  position: relative;
+  width: 20em;
+  height: auto;
+  background: var(--generator_bg);
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 0 1em 1em 1em;
+  box-shadow: hsla(221, 17%, 75%, 1) 0px 25px 50px -12px;
+  transition: 1s;
+}
+
+.container .heading {
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 2em;
+  margin: 0 0 0.8em 0;
+  border-radius: 0 0 10px 10px;
+  background: linear-gradient(160deg, #d6ff7f, #0ccda3);
+  color: var(--generator_bg);
+  display: grid;
+  place-items: center;
+}
+
+.info_text {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+}
+
+.info_text h3 {
+  margin: 0 0 0.3em 0;
+  background: linear-gradient(160deg, #d6ff7f, #0ccda3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.info_text p {
+  color: var(--text_color);
+  margin: 0;
+}
+
+#input_text {
+  width: 100%;
+  height: auto;
+  outline: none;
+  padding: 0.5em;
+  box-sizing: border-box;
+  color: var(--text_color);
+  border: 1px solid var(--border_color);
+  border-radius: 2px;
+}
+
+#input_text::placeholder {
+  color: var(--text_color);
+}
+
+#generate_btn,
+#download_btn {
+  width: 100%;
+  height: 2.2em;
+  margin: 0.3em 0;
+  background: var(--btn_color);
+  display: grid;
+  place-items: center;
+  border-radius: 2px;
+  color: var(--generator_bg);
+  font-weight: 500;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  box-shadow: border-box;
+}
+
+#image_div {
+  width: 100%;
+  height: 3.5em;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  padding: 1em;
+  margin-top: 0.5em;
+  border: 1px solid var(--border_color);
+  border-radius: 2px;
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+#image_div #temp_text {
+  margin: 0;
+  color: var(--text_color);
+  text-align: left;
+}
+
+
+#qr {
+  opacity: 0;
+}
+
+#download_btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(160deg, #d6ff7f, #0ccda3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.btn {
+  position: relative;
+  width: 100%;
+  height: 0;
+  outline: none;
+  margin: 0.3em 0;
+  display: grid;
+  place-items: center;
+  border-radius: 2px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  box-shadow: border-box;
+  background: linear-gradient(160deg, #d6ff7f, #0ccda3);
+  opacity: 0;
+  transition: 1s;
+}
+
+.btn::before {
+  content: "";
+  width: 98%;
+  height: 90%;
+  background: var(--bg_color);
+
+}
+
+
+
+
+
+
+.box:before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(162deg, #f89b29 0%, #ff0f30 72%);
+  transform: translate3d(0px, 0px, 0) scale(1.12);
+  filter: blur(20px);
+  opacity: var(0.7);
+  transition: opacity 0.3s;
+  border-radius: inherit;
+}
+
+/* 
+                * Prevents issues when the parent creates a 
+                * stacking context. (For example, using the transform
+                * property )
+                */
+.box::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  border-radius: inherit;
+}
