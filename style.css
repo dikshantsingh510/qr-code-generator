@@ -1,3 +1,4 @@
+/* Root Variables for Theme Customization */
 :root {
   --bg_color: #fff;
   --generator_bg: #fff;
@@ -7,6 +8,7 @@
   --transition: 1s;
 }
 
+/* Global Styles */
 body {
   margin: 0;
   padding: 0;
@@ -15,20 +17,18 @@ body {
   height: 100vh;
   font-family: sans-serif;
   background: var(--bg_color);
-  /* background: linear-gradient(135deg,#0CCDA3,#C1FCD3); */
-
-
 }
 
 .container {
   width: 100%;
   height: 100%;
-  background: transparent;
   display: grid;
   place-items: center;
   overflow: hidden;
+  background: transparent;
 }
 
+/* Alert Styles */
 #error_alert,
 #success_alert {
   position: absolute;
@@ -38,22 +38,23 @@ body {
   width: 15em;
   height: 2.2em;
   display: flex;
-  place-items: center;
   justify-content: center;
-  background: linear-gradient(-40deg, #ff2957, #ff7357);
+  align-items: center;
   border-radius: 5px;
-  box-sizing: border-box;
   color: #fff;
   font-weight: 500;
-  transition: 1s;
+  transition: var(--transition);
   opacity: 1;
   z-index: 100;
+}
+
+#error_alert {
+  background: linear-gradient(-40deg, #ff2957, #ff7357);
 }
 
 #success_alert {
   background: linear-gradient(160deg, #d6ff7f, #0ccda3);
   z-index: 99;
-
 }
 
 #error_alert::before,
@@ -62,33 +63,28 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  box-sizing: border-box;
   border-radius: 5px;
-  background: linear-gradient(-40deg, #ff2957, #ff7357);
   filter: blur(10px);
+  z-index: -1;
+}
+
+#error_alert::before {
+  background: linear-gradient(-40deg, #ff2957, #ff7357);
 }
 
 #success_alert::before {
   background: linear-gradient(160deg, #d6ff7f, #0ccda3);
 }
 
-#error_alert p,
-#success_alert p {
-  position: absolute;
-  color: #fff;
-}
-
-
+/* Generator Styles */
 .generator {
   position: relative;
   width: 20em;
-  height: auto;
+  padding: 0 1em 1em;
   background: var(--generator_bg);
   border-radius: 5px;
-  box-sizing: border-box;
-  padding: 0 1em 1em 1em;
   box-shadow: hsla(221, 17%, 75%, 1) 0px 25px 50px -12px;
-  transition: 1s;
+  transition: var(--transition);
 }
 
 .container .heading {
@@ -98,7 +94,7 @@ body {
   transform: translateX(-50%);
   width: 90%;
   height: 2em;
-  margin: 0 0 0.8em 0;
+  margin-bottom: 0.8em;
   border-radius: 0 0 10px 10px;
   background: linear-gradient(160deg, #d6ff7f, #0ccda3);
   color: var(--generator_bg);
@@ -106,20 +102,18 @@ body {
   place-items: center;
 }
 
+/* Text and Input Styles */
 .info_text {
   width: 100%;
-  box-sizing: border-box;
   margin-bottom: 0.5em;
   padding: 0.5em;
 }
 
 .info_text h3 {
-  color: #d6ff7f;
-  margin: 0 0 0.3em 0;
+  margin-bottom: 0.3em;
   background: linear-gradient(160deg, #d6ff7f, #0ccda3);
   background-clip: text;
   -webkit-background-clip: text;
-  -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -134,7 +128,6 @@ body {
   resize: vertical;
   outline: none;
   padding: 0.5em;
-  box-sizing: border-box;
   color: var(--text_color);
   border: 1px solid var(--border_color);
   border-radius: 2px;
@@ -144,45 +137,21 @@ body {
   color: var(--text_color);
 }
 
+/* Button Styles */
 #generate_btn,
 #download_btn {
   width: 100%;
   height: 2.2em;
   margin: 0.5em 0;
   background: var(--btn_color);
-  display: grid;
-  place-items: center;
-  border-radius: 2px;
   color: var(--generator_bg);
   font-weight: 500;
   font-size: 1.1em;
   letter-spacing: 1px;
-  box-shadow: border-box;
-}
-
-#image_div {
-  width: 100%;
-  height: 3.5em;
-  box-sizing: border-box;
   display: grid;
   place-items: center;
-  padding: 1em;
-  margin-top: 0.5em;
-  border: 1px solid var(--border_color);
   border-radius: 2px;
   transition: var(--transition);
-  overflow: hidden;
-}
-
-#image_div #temp_text {
-  margin: 0;
-  color: var(--text_color);
-  text-align: left;
-}
-
-
-#qr {
-  opacity: 0;
 }
 
 #download_btn {
@@ -194,29 +163,47 @@ body {
   background: linear-gradient(160deg, #d6ff7f, #0ccda3);
   background-clip: text;
   -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
-  width: 100%;
-  height: 100%;
 }
 
+/* Image Div Styles */
+#image_div {
+  width: 100%;
+  height: 3.5em;
+  padding: 1em;
+  margin-top: 0.5em;
+  border: 1px solid var(--border_color);
+  border-radius: 2px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+#image_div #temp_text {
+  margin: 0;
+  color: var(--text_color);
+  text-align: left;
+}
+
+#qr {
+  opacity: 0;
+}
+
+/* Miscellaneous Button Styles */
 .btn {
-  position: relative;
   width: 100%;
   height: 0;
-  outline: none;
   margin: 0.3em 0;
   display: grid;
   place-items: center;
   border-radius: 2px;
   font-weight: 500;
   letter-spacing: 1px;
-  box-shadow: border-box;
   background: linear-gradient(160deg, #d6ff7f, #0ccda3);
   opacity: 0;
-  transition: 1s;
+  transition: var(--transition);
 }
 
 .btn::before {
@@ -224,38 +211,27 @@ body {
   width: 98%;
   height: 90%;
   background: var(--bg_color);
-
 }
 
-
-
-
-
-
-.box:before {
+/* Box Glow Effect */
+.box::before {
   content: "";
-  z-index: -1;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   background: linear-gradient(162deg, #f89b29 0%, #ff0f30 72%);
-  transform: translate3d(0px, 0px, 0) scale(1.12);
+  transform: scale(1.12);
   filter: blur(20px);
-  opacity: var(0.7);
+  opacity: 0.7;
   transition: opacity 0.3s;
   border-radius: inherit;
+  z-index: -1;
 }
 
-/* 
-                * Prevents issues when the parent creates a 
-                * stacking context. (For example, using the transform
-                * property )
-                */
 .box::after {
   content: "";
-  z-index: -1;
   position: absolute;
   top: 0;
   right: 0;
@@ -263,4 +239,5 @@ body {
   left: 0;
   background: inherit;
   border-radius: inherit;
+  z-index: -1;
 }
